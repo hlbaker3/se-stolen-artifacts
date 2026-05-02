@@ -190,7 +190,7 @@ export default function StatueFolderList({ statues, isLoading, error, hasSearche
           {paginatedStatues.map((statue) => {
             const imageCount = statue.images?.length ?? 0;
             const previewImage = statue.images?.[0];
-            const displayTitle = safeText(statue.title, `Untitled Artifact #${statue.statue_id}`);
+            const displayTitle = safeText(statue.title, `Statue #${statue.statue_id}`);
 
             return (
               <Box
