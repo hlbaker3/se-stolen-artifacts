@@ -518,7 +518,7 @@ const ImageMetadataDialog = ({
   <Dialog open={Boolean(selectedImage)} onClose={onClose} maxWidth="sm" fullWidth>
     {selectedImage ? (
       <>
-        <DialogTitle>Image metadata for {selectedImage.statueTitle}</DialogTitle>
+        <DialogTitle>Image source data for {selectedImage.statueTitle}</DialogTitle>
         <DialogContent dividers>
           <Stack spacing={2}>
             <Box
@@ -527,31 +527,37 @@ const ImageMetadataDialog = ({
               alt={selectedImage.image.source ?? selectedImage.statueTitle}
               sx={{ width: '100%', height: 320, objectFit: 'cover', borderRadius: 1 }}
             />
-            <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
-              <Chip label={`Image #${selectedImage.image.id ?? '—'}`} size="small" />
-              {selectedImage.image.photographLocation ? (
-                <Chip
-                  label={selectedImage.image.photographLocation}
-                  size="small"
-                  color="secondary"
-                  variant="outlined"
-                />
-              ) : null}
-              {selectedImage.image.photographCountry ? (
-                <Chip label={selectedImage.image.photographCountry} size="small" variant="outlined" />
-              ) : null}
-            </Stack>
-            <Stack spacing={0.75}>
+            <Alert severity="info" sx={{ fontSize: 13 }}>
+              The following information is as recorded by the source of this image. It has not been independently verified by the KSP and may be incomplete or inaccurate.
+            </Alert>
+            <Stack spacing={1.5}>
               <InfoItem label="Source" value={safeText(selectedImage.image.source, 'Not documented')} />
-              <InfoItem
-                label="Photograph location"
-                value={safeText(selectedImage.image.photographLocation, 'Unknown site')}
-              />
-              <InfoItem
-                label="Photograph country"
-                value={safeText(selectedImage.image.photographCountry, 'Unknown country')}
-              />
+              <InfoItem label="Title (per source)" value={safeText(selectedImage.image.titlePerSource, 'Not documented')} />
+              <InfoItem label="Description (per source)" value={safeText(selectedImage.image.descriptionPerSource, 'Not documented')} />
+              <InfoItem label="Ownership history (per source)" value={safeText(selectedImage.image.provenancePerSource, 'Not documented')} />
+              <InfoItem label="Research notes" value={safeText(selectedImage.image.observations, 'None')} />
+              <InfoItem label="Original site (per source)" value={safeText(selectedImage.image.originalSite, 'Not documented')} />
+              <InfoItem label="Where photographed" value={safeText(selectedImage.image.photographLocation, 'Not documented')} />
+              <InfoItem label="Photo date" value={safeText(selectedImage.image.dateOfPhotograph, 'Not documented')} />
+              <InfoItem label="Dealer or collector" value={safeText(selectedImage.image.dealerName, 'Not documented')} />
+              <InfoItem label="Repatriation status" value={safeText(selectedImage.image.repatriated, 'Not documented')} />
+              <InfoItem label="Material" value={safeText(selectedImage.image.material, 'Not documented')} />
+              <InfoItem label="Subject" value={safeText(selectedImage.image.subject, 'Not documented')} />
             </Stack>
+            {selectedImage.image.sourceUrl ? (
+              <Button
+                size="small"
+                variant="outlined"
+                component="a"
+                href={selectedImage.image.sourceUrl}
+                target="_blank"
+                rel="noreferrer"
+                endIcon={<LaunchIcon fontSize="small" />}
+                sx={{ alignSelf: 'flex-start' }}
+              >
+                View original source
+              </Button>
+            ) : null}
           </Stack>
         </DialogContent>
         <DialogActions>
