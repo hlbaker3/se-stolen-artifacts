@@ -48,13 +48,24 @@ export type StatueSearchRow = {
   current_location_link: string | null;
   subjects: string[] | null;
   attributes: string[] | null;
-  images: Array<{
+ images: Array<{
     id: string;
     url: string | null;
     source: string | null;
     photographLocation: string | null;
     photographCountry: string | null;
     gcsPath?: string | null;
+    titlePerSource: string | null;
+    descriptionPerSource: string | null;
+    provenancePerSource: string | null;
+    observations: string | null;
+    originalSite: string | null;
+    dateOfPhotograph: string | null;
+    repatriated: string | null;
+    dealerName: string | null;
+    sourceUrl: string | null;
+    material: string | null;
+    subject: string | null;
   }> | null;
   dealer_history: Array<{
     dealer: string | null;
