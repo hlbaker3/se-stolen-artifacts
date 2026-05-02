@@ -54,39 +54,26 @@ export default function Navbar() {
         setAdminMenuAnchor(null);
       };
 
-      rightContent = (
+     rightContent = (
+        <Stack direction="row" spacing={2}>
+          <Button variant="outlined" component={Link} href="/search">
+            Search Database
+          </Button>
+          <Button variant="text" component={Link} href="/signin">
+            Log in
+          </Button>
+          <Button variant="contained" endIcon={<ArrowForwardIcon />} component={Link} href="/signup">
+            Sign up
+          </Button>
+        </Stack>
+      );
+    } else {
+rightContent = (
         <Stack direction="row" spacing={2} alignItems="center">
           <Typography variant="body1">Welcome, {user?.firstName || 'User'}</Typography>
-          {isAdmin && (
-            <>
-              <Button variant="contained" color="primary" onClick={handleAdminMenuOpen} sx={{ position: 'relative' }}>
-                Admin
-              </Button>
-              <Menu
-                anchorEl={adminMenuAnchor}
-                open={Boolean(adminMenuAnchor)}
-                onClose={handleAdminMenuClose}
-                MenuListProps={{
-                  'aria-labelledby': 'admin-button',
-                }}
-                anchorOrigin={{
-                  vertical: 'bottom',
-                  horizontal: 'left',
-                }}
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'left',
-                }}
-              >
-                <MenuItem component={Link} href="/admin/admin-review" onClick={handleAdminMenuClose}>
-                  Pending Images
-                </MenuItem>
-                <MenuItem component={Link} href="/admin/db-view" onClick={handleAdminMenuClose}>
-                  Admin DB View
-                </MenuItem>
-              </Menu>
-            </>
-          )}
+          <Button variant="outlined" component={Link} href="/search">
+            Search Database
+          </Button>
           <Button variant="outlined" onClick={() => signOut({ redirectUrl: '/' })}>
             Log out
           </Button>
@@ -95,6 +82,9 @@ export default function Navbar() {
     } else {
       rightContent = (
         <Stack direction="row" spacing={2}>
+          <Button variant="outlined" component={Link} href="/search">
+            Search Database
+          </Button>
           <Button variant="text" component={Link} href="/signin">
             Log in
           </Button>
