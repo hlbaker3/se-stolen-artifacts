@@ -98,13 +98,24 @@ const SEARCH_SELECT = `
   statue_attributes (
     attributes (attribute_name)
   ),
-  images (
+ images (
     internal_reference_number,
     image_url,
     image_gcs,
     image_source,
     is_deleted,
-    photograph_location
+    photograph_location,
+    title_per_source,
+    description_per_source,
+    provenance_per_source,
+    observations,
+    original_site,
+    date_of_photograph,
+    repatriated,
+    dealer_name,
+    source_url,
+    material,
+    subject
   ),
   auction_events (
     auction_name,
