@@ -545,10 +545,7 @@ const ImageMetadataDialog = ({
                 label="Ownership history (per source)"
                 value={safeText(selectedImage.image.provenancePerSource, 'Not documented')}
               />
-              <InfoItem
-                label="Research notes"
-                value={safeText(selectedImage.image.observations, 'None')}
-              />
+              <InfoItem label="Research notes" value={safeText(selectedImage.image.observations, 'None')} />
               <InfoItem
                 label="Original site (per source)"
                 value={safeText(selectedImage.image.originalSite, 'Not documented')}
@@ -557,10 +554,7 @@ const ImageMetadataDialog = ({
                 label="Where photographed"
                 value={safeText(selectedImage.image.photographLocation, 'Not documented')}
               />
-              <InfoItem
-                label="Photo date"
-                value={safeText(selectedImage.image.dateOfPhotograph, 'Not documented')}
-              />
+              <InfoItem label="Photo date" value={safeText(selectedImage.image.dateOfPhotograph, 'Not documented')} />
               <InfoItem
                 label="Dealer or collector"
                 value={safeText(selectedImage.image.dealerName, 'Not documented')}
