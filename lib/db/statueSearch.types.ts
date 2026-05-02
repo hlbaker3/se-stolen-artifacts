@@ -48,7 +48,7 @@ export type StatueSearchRow = {
   current_location_link: string | null;
   subjects: string[] | null;
   attributes: string[] | null;
- images: Array<{
+  images: Array<{
     id: string;
     url: string | null;
     source: string | null;
