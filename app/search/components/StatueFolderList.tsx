@@ -531,18 +531,42 @@ const ImageMetadataDialog = ({
               The following information is as recorded by the source of this image. It has not been independently verified by the KSP and may be incomplete or inaccurate.
             </Alert>
             <Stack spacing={1.5}>
-              <InfoItem label="Source" value={safeText(selectedImage.image.source, 'Not documented')} />
-              <InfoItem label="Title (per source)" value={safeText(selectedImage.image.titlePerSource, 'Not documented')} />
-              <InfoItem label="Description (per source)" value={safeText(selectedImage.image.descriptionPerSource, 'Not documented')} />
-              <InfoItem label="Ownership history (per source)" value={safeText(selectedImage.image.provenancePerSource, 'Not documented')} />
-              <InfoItem label="Research notes" value={safeText(selectedImage.image.observations, 'None')} />
-              <InfoItem label="Original site (per source)" value={safeText(selectedImage.image.originalSite, 'Not documented')} />
-              <InfoItem label="Where photographed" value={safeText(selectedImage.image.photographLocation, 'Not documented')} />
-              <InfoItem label="Photo date" value={safeText(selectedImage.image.dateOfPhotograph, 'Not documented')} />
-              <InfoItem label="Dealer or collector" value={safeText(selectedImage.image.dealerName, 'Not documented')} />
-              <InfoItem label="Repatriation status" value={safeText(selectedImage.image.repatriated, 'Not documented')} />
-              <InfoItem label="Material" value={safeText(selectedImage.image.material, 'Not documented')} />
-              <InfoItem label="Subject" value={safeText(selectedImage.image.subject, 'Not documented')} />
+              <InfoItem 
+                label="Source" 
+                value={safeText(selectedImage.image.source, 'Not documented')} />
+              <InfoItem 
+                label="Title (per source)" 
+                value={safeText(selectedImage.image.titlePerSource, 'Not documented')} />
+              <InfoItem 
+                label="Description (per source)" 
+                value={safeText(selectedImage.image.descriptionPerSource, 'Not documented')} />
+              <InfoItem 
+                label="Ownership history (per source)" 
+                value={safeText(selectedImage.image.provenancePerSource, 'Not documented')} />
+              <InfoItem 
+                label="Research notes" 
+                value={safeText(selectedImage.image.observations, 'None')} />
+              <InfoItem 
+                label="Original site (per source)" 
+                value={safeText(selectedImage.image.originalSite, 'Not documented')} />
+              <InfoItem 
+                label="Where photographed" 
+                value={safeText(selectedImage.image.photographLocation, 'Not documented')} />
+              <InfoItem 
+                label="Photo date" 
+                value={safeText(selectedImage.image.dateOfPhotograph, 'Not documented')} />
+              <InfoItem 
+                label="Dealer or collector" 
+                value={safeText(selectedImage.image.dealerName, 'Not documented')} />
+              <InfoItem 
+                label="Repatriation status" 
+                value={safeText(selectedImage.image.repatriated, 'Not documented')} />
+              <InfoItem 
+                label="Material" 
+                value={safeText(selectedImage.image.material, 'Not documented')} />
+              <InfoItem 
+                label="Subject" 
+                value={safeText(selectedImage.image.subject, 'Not documented')} />
             </Stack>
             {selectedImage.image.sourceUrl ? (
               <Button
