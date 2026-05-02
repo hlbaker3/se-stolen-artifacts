@@ -237,6 +237,17 @@ const mapImages = (row: SupabaseStatueRow, locationMap: LocationMap): StatueSear
     photographCountry:
       image.photograph_location != null ? (locationMap[image.photograph_location]?.country ?? null) : null,
     gcsPath: image.image_gcs ?? null,
+    titlePerSource: image.title_per_source ?? null,
+    descriptionPerSource: image.description_per_source ?? null,
+    provenancePerSource: image.provenance_per_source ?? null,
+    observations: image.observations ?? null,
+    originalSite: image.original_site ?? null,
+    dateOfPhotograph: image.date_of_photograph ?? null,
+    repatriated: image.repatriated ?? null,
+    dealerName: image.dealer_name ?? null,
+    sourceUrl: image.source_url ?? null,
+    material: image.material ?? null,
+    subject: image.subject ?? null,
   }));
 };
 
