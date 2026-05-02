@@ -15,9 +15,9 @@ export default function Navbar() {
   const { signOut } = useClerk();
   const [adminMenuAnchor, setAdminMenuAnchor] = useState<null | HTMLElement>(null);
 
-  // Determine which buttons to show based on the current path and auth state
   let rightContent = null;
   let isAdmin = false;
+
   if (
     pathname === '/search' ||
     pathname === '/upload' ||
@@ -42,38 +42,44 @@ export default function Navbar() {
     if (isLoaded && isSignedIn) {
       isAdmin = user?.publicMetadata?.role === 'admin';
     }
-    // Don't render auth buttons until Clerk has finished loading
+
     if (!isLoaded) {
       rightContent = null;
     } else if (isSignedIn) {
       const handleAdminMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
         setAdminMenuAnchor(event.currentTarget);
       };
-
       const handleAdminMenuClose = () => {
         setAdminMenuAnchor(null);
       };
 
-     rightContent = (
-        <Stack direction="row" spacing={2}>
-          <Button variant="outlined" component={Link} href="/search">
-            Search Database
-          </Button>
-          <Button variant="text" component={Link} href="/signin">
-            Log in
-          </Button>
-          <Button variant="contained" endIcon={<ArrowForwardIcon />} component={Link} href="/signup">
-            Sign up
-          </Button>
-        </Stack>
-      );
-    } else {
-rightContent = (
+      rightContent = (
         <Stack direction="row" spacing={2} alignItems="center">
           <Typography variant="body1">Welcome, {user?.firstName || 'User'}</Typography>
           <Button variant="outlined" component={Link} href="/search">
             Search Database
           </Button>
+          {isAdmin && (
+            <>
+              <Button variant="contained" color="primary" onClick={handleAdminMenuOpen}>
+                Admin
+              </Button>
+              <Menu
+                anchorEl={adminMenuAnchor}
+                open={Boolean(adminMenuAnchor)}
+                onClose={handleAdminMenuClose}
+                anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+                transformOrigin={{ vertical: 'top', horizontal: 'left' }}
+              >
+                <MenuItem component={Link} href="/admin/admin-review" onClick={handleAdminMenuClose}>
+                  Pending Images
+                </MenuItem>
+                <MenuItem component={Link} href="/admin/db-view" onClick={handleAdminMenuClose}>
+                  Admin DB View
+                </MenuItem>
+              </Menu>
+            </>
+          )}
           <Button variant="outlined" onClick={() => signOut({ redirectUrl: '/' })}>
             Log out
           </Button>
