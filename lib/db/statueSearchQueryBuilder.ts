@@ -45,8 +45,18 @@ type SupabaseImage = {
   image_source: string | null;
   is_deleted?: boolean | null;
   photograph_location: number | null;
+  title_per_source: string | null;
+  description_per_source: string | null;
+  provenance_per_source: string | null;
+  observations: string | null;
+  original_site: string | null;
+  date_of_photograph: string | null;
+  repatriated: string | null;
+  dealer_name: string | null;
+  source_url: string | null;
+  material: string | null;
+  subject: string | null;
 };
-
 type SupabaseAuctionEvent = {
   auction_name: string | null;
   auction_date: string | null;
