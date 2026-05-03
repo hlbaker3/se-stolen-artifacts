@@ -439,9 +439,8 @@ export const executeStatueSearch = async (filters: StatueSearchFilters): Promise
     throw new Error(error.message);
   }
 
-  const rows = (data ?? []) as unknown as SupabaseStatueRow[];
-  const locationMap = await buildLocationMap(rows);
-  const filteredRows = rows.filter((row) => matchesPostFilters(row, filters ?? {}, locationMap));
+const rows = (data ?? []) as unknown as SupabaseStatueRow[];
+const filteredRows = rows.filter((row) => matchesPostFilters(row, filters ?? {}, {}));
 
-  return filteredRows.map((row) => mapStatueRow(row, locationMap));
+return filteredRows.map((row) => mapStatueRow(row, {}));
 };
