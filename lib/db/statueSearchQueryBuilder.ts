@@ -45,6 +45,7 @@ type SupabaseImage = {
   image_source: string | null;
   is_deleted?: boolean | null;
   photograph_location: number | null;
+  photograph_location_text: string | null;
   title_per_source: string | null;
   description_per_source: string | null;
   provenance_per_source: string | null;
@@ -115,6 +116,7 @@ const SEARCH_SELECT = `
     image_source,
     is_deleted,
     photograph_location,
+    photograph_location_text,
     title_per_source,
     description_per_source,
     provenance_per_source,
@@ -232,10 +234,8 @@ const mapImages = (row: SupabaseStatueRow, locationMap: LocationMap): StatueSear
     id: image.internal_reference_number,
     url: image.image_url,
     source: image.image_source,
-    photographLocation:
-      image.photograph_location != null ? (locationMap[image.photograph_location]?.location_name ?? null) : null,
-    photographCountry:
-      image.photograph_location != null ? (locationMap[image.photograph_location]?.country ?? null) : null,
+    photographLocation: image.photograph_location_text ?? null,
+    photographCountry: null,
     gcsPath: image.image_gcs ?? null,
     titlePerSource: image.title_per_source ?? null,
     descriptionPerSource: image.description_per_source ?? null,
