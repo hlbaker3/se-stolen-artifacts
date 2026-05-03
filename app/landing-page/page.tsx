@@ -100,7 +100,16 @@ const LandingPage: NextPage = () => {
                 Introduction
               </Box>
               <Typography variant="h6" color="text.primary">
-                This database and search engine is an initiative of the Khmer Statuary Project. Please visit{' '}
+                The Khmer Statuary Project (KSP) database and search engine is an initiative of the Statuary Projects.
+                It is designed to expand our understanding of Khmer objects around the world, helping us see where they
+                came from, whose hands they&apos;ve passed through, and how people have engaged with them through time.
+                People, from local community members to visitors, art dealers and museum representatives to
+                creatives—and now maybe you—have taken photographs of these objects for centuries. Interested in seeing
+                if there are other photos of a particular statue? Upload a photo of a statue and search for other photos
+                of it in the KSP&apos;s database. Our trained image recognition model will return possible matches for
+                your photo. You can add your photo and its corresponding information to our growing database, either as
+                a new statue or as an additional image for a statue already documented. Our team will review and confirm
+                your submission. Visit{' '}
                 <MuiLink
                   href="https://statuaryproject.org"
                   target="_blank"
@@ -116,8 +125,7 @@ const LandingPage: NextPage = () => {
                 >
                   our website
                 </MuiLink>{' '}
-                to read more about the design of this tool, the project&apos;s aims and objectives, and the problem of
-                looting and how we hope to address it.
+                to read more about this tool and the KSP&apos;s companion projects.
               </Typography>
               <Button variant="contained" size="large" component={Link} href="/upload" endIcon={<CloudUpload />}>
                 Contribute to the Database
