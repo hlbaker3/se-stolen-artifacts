@@ -312,7 +312,7 @@ const applySupabaseFilters = (filters: StatueSearchFilters) => {
   return query;
 };
 
-const matchesPostFilters = (row: SupabaseStatueRow, filters: StatueSearchFilters,): boolean => {
+const matchesPostFilters = (row: SupabaseStatueRow, filters: StatueSearchFilters): boolean => {
   const advanced = filters.advanced ?? {};
   const main = filters.main ?? {};
   const attributeSet = getAttributeSet(row);
