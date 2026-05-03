@@ -39,8 +39,8 @@ const LandingPage: NextPage = () => {
       >
         <Box
           sx={{
-            flex: { xs: '0 0 auto', md: '1 1 50%' },
-            width: { xs: '100%', md: '50%' },
+            flex: { xs: '0 0 auto', md: '1 1 35%' },
+            width: { xs: '100%', md: '35%' },
             position: 'relative',
             minHeight: { xs: 240, md: '100%' },
             overflow: 'hidden',
@@ -55,14 +55,15 @@ const LandingPage: NextPage = () => {
               inset: 0,
               width: '100%',
               height: '100%',
-              objectFit: 'cover',
+              objectFit: 'contain',
+              objectPosition: 'center',
             }}
           />
         </Box>
         <Box
           sx={{
-            flex: { xs: '0 0 auto', md: '1 1 50%' },
-            width: { xs: '100%', md: '50%' },
+            flex: { xs: '0 0 auto', md: '1 1 65%' },
+            width: { xs: '100%', md: '65%' },
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -75,10 +76,10 @@ const LandingPage: NextPage = () => {
               position: 'relative',
               zIndex: 1,
               width: '100%',
-              maxWidth: 560,
+              maxWidth: 760,
               borderRadius: 5,
               px: { xs: 4, md: 7 },
-              py: { xs: 5, md: 7 },
+              py: { xs: 5, md: 8 },
               boxShadow: '0 32px 90px rgba(15,23,42,0.35)',
               backgroundColor: 'background.paper',
             }}
