@@ -105,7 +105,7 @@ const LandingPage: NextPage = () => {
                 It is designed to expand our understanding of Khmer objects around the world, helping us see where they
                 came from, whose hands they&apos;ve passed through, and how people have engaged with them through time.
                 People, from local community members to visitors, art dealers and museum representatives to
-                creatives—and now maybe you—have taken photographs of these objects for centuries.
+                creatives—and now maybe you—have taken photographs of these objects since the 1860s.
               </Typography>
               <Typography variant="h6" color="text.primary">
                 Interested in seeing if there are other photos of a particular statue? Upload a photo of a statue and
