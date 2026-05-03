@@ -134,7 +134,7 @@ const LandingPage: NextPage = () => {
                 to read more about this tool and the KSP&apos;s companion projects.
               </Typography>
               <Button variant="contained" size="large" component={Link} href="/upload" endIcon={<CloudUpload />}>
-                Contribute to the Database
+                Search by Image
               </Button>
             </Stack>
           </Box>
