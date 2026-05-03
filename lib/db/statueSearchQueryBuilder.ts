@@ -223,7 +223,7 @@ const pickLatestLocation = (locations: SupabaseCurrentLocation[] | null): Supaba
   return sorted[0] ?? null;
 };
 
-const mapImages = (row: SupabaseStatueRow, locationMap: LocationMap): StatueSearchRow['images'] => {
+const mapImages = (row: SupabaseStatueRow): StatueSearchRow['images'] => {
   const filtered = (row.images ?? []).filter((image) => !image.is_deleted);
 
   if (filtered.length === 0) {
@@ -293,7 +293,7 @@ const mapStatueRow = (row: SupabaseStatueRow, locationMap: LocationMap): StatueS
     current_location_link: currentLocation?.link ?? null,
     subjects: subjects,
     attributes: attributes.length > 0 ? attributes : [],
-    images: mapImages(row, locationMap),
+    images: mapImages(row),
     dealer_history: mapDealerHistory(row),
   };
 };
