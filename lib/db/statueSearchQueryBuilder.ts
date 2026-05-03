@@ -83,8 +83,6 @@ type SupabaseStatueRow = {
   auction_events: SupabaseAuctionEvent[] | null;
 };
 
-type LocationMap = Record<number, SupabaseLocation>;
-
 const SEARCH_SELECT = `
   statue_id,
   description,
@@ -136,12 +134,6 @@ const SEARCH_SELECT = `
     auction_institutions:auction_house_id (name)
   )
 `;
-
-type LocationRow = {
-  id: number;
-  location_name: string | null;
-  country: string | null;
-};
 
 const uniqueStrings = (values?: (string | null | undefined)[]): string[] => {
   if (!values) return [];
@@ -231,7 +223,7 @@ const mapDealerHistory = (row: SupabaseStatueRow): StatueSearchRow['dealer_histo
   return nonEmpty.length > 0 ? nonEmpty : null;
 };
 
-const mapStatueRow = (row: SupabaseStatueRow, locationMap: LocationMap): StatueSearchRow => {
+const mapStatueRow = (row: SupabaseStatueRow): StatueSearchRow => {
   const currentLocation = pickLatestLocation(row.statue_current_loc);
   const currentLocationRecord = pickSingle(currentLocation?.location);
   const subjects = getSubjects(row);
@@ -320,10 +312,7 @@ const applySupabaseFilters = (filters: StatueSearchFilters) => {
   return query;
 };
 
-const matchesPostFilters = (
-  row: SupabaseStatueRow,
-  filters: StatueSearchFilters,
-): boolean => {
+const matchesPostFilters = (row: SupabaseStatueRow, filters: StatueSearchFilters,): boolean => {
   const advanced = filters.advanced ?? {};
   const main = filters.main ?? {};
   const attributeSet = getAttributeSet(row);
@@ -374,11 +363,7 @@ const matchesPostFilters = (
   if (isNonEmptyString(main.photographLocation)) {
     const term = normalize(main.photographLocation);
     const images = row.images ?? [];
-    const hasMatch = images.some((img) => {
-      const loc = null;
-      const values = [loc?.location_name, loc?.country].map(normalize).filter(Boolean);
-      return values.some((value) => value.includes(term));
-    });
+    const hasMatch = images.some((img) => normalize(img.photograph_location_text).includes(term));
     if (!hasMatch) return false;
   }
 
