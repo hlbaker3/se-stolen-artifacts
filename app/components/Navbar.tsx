@@ -89,7 +89,7 @@ export default function Navbar() {
       rightContent = (
         <Stack direction="row" spacing={2}>
           <Button variant="outlined" component={Link} href="/search">
-            Search Database
+            Browse Database
           </Button>
           <Button variant="text" component={Link} href="/signin">
             Log in
