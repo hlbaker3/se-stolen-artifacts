@@ -57,7 +57,7 @@ export default function Navbar() {
         <Stack direction="row" spacing={2} alignItems="center">
           <Typography variant="body1">Welcome, {user?.firstName || 'User'}</Typography>
           <Button variant="outlined" component={Link} href="/search">
-            Search Database
+            Browse Database
           </Button>
           {isAdmin && (
             <>
