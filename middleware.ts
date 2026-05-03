@@ -5,12 +5,7 @@ const isProtectedRoute = createRouteMatcher(['/upload(.*)']);
 
 export default clerkMiddleware(async (auth, req) => {
   if (isProtectedRoute(req)) {
-    const { userId } = await auth();
-    if (!userId) {
-      const signInUrl = new URL('/signin', req.url);
-      signInUrl.searchParams.set('redirect_url', req.nextUrl.pathname);
-      return NextResponse.redirect(signInUrl.toString());
-    }
+    await auth.protect();
   }
   return NextResponse.next();
 });
