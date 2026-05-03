@@ -114,7 +114,7 @@ const LandingPage: NextPage = () => {
                     },
                   }}
                 >
-                  our website (statuaryproject.org)
+                  our website
                 </MuiLink>{' '}
                 to read more about the design of this tool, the project&apos;s aims and objectives, and the problem of
                 looting and how we hope to address it.
