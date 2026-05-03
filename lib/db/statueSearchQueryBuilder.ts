@@ -390,7 +390,7 @@ export const executeStatueSearch = async (filters: StatueSearchFilters): Promise
   }
 
   const rows = (data ?? []) as unknown as SupabaseStatueRow[];
-  const filteredRows = rows.filter((row) => matchesPostFilters(row, filters ?? {}, {}));
+  const filteredRows = rows.filter((row) => matchesPostFilters(row, filters ?? {}));
 
-  return filteredRows.map((row) => mapStatueRow(row, {}));
+  return filteredRows.map((row) => mapStatueRow(row));
 };
