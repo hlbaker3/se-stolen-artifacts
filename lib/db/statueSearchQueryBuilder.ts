@@ -143,40 +143,6 @@ type LocationRow = {
   country: string | null;
 };
 
-const buildLocationMap = async (rows: SupabaseStatueRow[]): Promise<LocationMap> => {
-  const ids = new Set<number>();
-  rows.forEach((row) =>
-    (row.images ?? []).forEach((image) => {
-      if (typeof image.photograph_location === 'number') {
-        ids.add(image.photograph_location);
-      }
-    })
-  );
-
-  if (ids.size === 0) {
-    return {};
-  }
-
-  const { data, error } = await supabase
-    .from('locations')
-    .select('id, location_name, country')
-    .in('id', Array.from(ids));
-
-  if (error || !data) {
-    console.error('Failed to fetch photograph locations', error);
-    return {};
-  }
-
-  const map: LocationMap = {};
-  (data as LocationRow[]).forEach((loc) => {
-    if (loc?.id != null) {
-      map[loc.id] = { location_name: loc.location_name ?? null, country: loc.country ?? null };
-    }
-  });
-
-  return map;
-};
-
 const uniqueStrings = (values?: (string | null | undefined)[]): string[] => {
   if (!values) return [];
   const seen = new Set<string>();
@@ -357,7 +323,6 @@ const applySupabaseFilters = (filters: StatueSearchFilters) => {
 const matchesPostFilters = (
   row: SupabaseStatueRow,
   filters: StatueSearchFilters,
-  locationMap: LocationMap
 ): boolean => {
   const advanced = filters.advanced ?? {};
   const main = filters.main ?? {};
@@ -410,7 +375,7 @@ const matchesPostFilters = (
     const term = normalize(main.photographLocation);
     const images = row.images ?? [];
     const hasMatch = images.some((img) => {
-      const loc = typeof img.photograph_location === 'number' ? locationMap[img.photograph_location] : null;
+      const loc = null;
       const values = [loc?.location_name, loc?.country].map(normalize).filter(Boolean);
       return values.some((value) => value.includes(term));
     });
@@ -439,8 +404,8 @@ export const executeStatueSearch = async (filters: StatueSearchFilters): Promise
     throw new Error(error.message);
   }
 
-const rows = (data ?? []) as unknown as SupabaseStatueRow[];
-const filteredRows = rows.filter((row) => matchesPostFilters(row, filters ?? {}, {}));
+  const rows = (data ?? []) as unknown as SupabaseStatueRow[];
+  const filteredRows = rows.filter((row) => matchesPostFilters(row, filters ?? {}, {}));
 
-return filteredRows.map((row) => mapStatueRow(row, {}));
+  return filteredRows.map((row) => mapStatueRow(row, {}));
 };
