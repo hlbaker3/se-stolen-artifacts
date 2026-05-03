@@ -112,8 +112,7 @@ const LandingPage: NextPage = () => {
                 search for other photos of it in the KSP&apos;s database. Our trained image recognition model will
                 return possible matches for your photo. You can add your photo and its corresponding information to our
                 growing database, either as a new statue or as an additional image for a statue already documented. Our
-                team will review and confirm
-                your submission.
+                team will review and confirm your submission.
               </Typography>
               <Typography variant="h6" color="text.primary">
                 Visit{' '}
