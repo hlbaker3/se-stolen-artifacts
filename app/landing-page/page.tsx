@@ -108,8 +108,8 @@ const LandingPage: NextPage = () => {
                 creatives—and now maybe you—have taken photographs of these objects since the 1860s.
               </Typography>
               <Typography variant="h6" color="text.primary">
-                Interested in seeing if there are other photos of a particular statue? Upload a photo of a statue and
-                search for other photos of it in the KSP&apos;s database. Our trained image recognition model will
+                Interested in seeing if there are other photos of a particular statue? Upload a photo and
+                search for other photos of the statue in the KSP&apos;s database. Our trained image recognition model will
                 return possible matches for your photo. You can add your photo and its corresponding information to our
                 growing database, either as a new statue or as an additional image for a statue already documented. Our
                 team will review and confirm your submission.
