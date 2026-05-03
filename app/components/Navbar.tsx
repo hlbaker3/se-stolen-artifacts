@@ -30,7 +30,7 @@ export default function Navbar() {
       <Stack direction="row" spacing={2}>
         {pathname === '/search' && (
           <Button variant="outlined" component={Link} href="/upload">
-            Upload Another Image
+            Search by Image
           </Button>
         )}
         <Button variant="outlined" startIcon={<ArrowBackIcon />} component={Link} href="/">
