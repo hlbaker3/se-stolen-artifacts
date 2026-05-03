@@ -56,7 +56,7 @@ const LandingPage: NextPage = () => {
               width: '100%',
               height: '100%',
               objectFit: 'contain',
-              objectPosition: 'left center',
+              objectPosition: 'center',
             }}
           />
         </Box>
