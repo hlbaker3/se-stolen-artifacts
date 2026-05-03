@@ -56,7 +56,7 @@ const LandingPage: NextPage = () => {
               width: '100%',
               height: '100%',
               objectFit: 'contain',
-              objectPosition: 'center',
+              objectPosition: 'left center',
             }}
           />
         </Box>
@@ -67,8 +67,8 @@ const LandingPage: NextPage = () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            px: { xs: 3, md: 6 },
-            py: { xs: 6, md: 8 },
+            px: { xs: 3, md: 4 },
+            py: { xs: 3, md: 4 },
           }}
         >
           <Box
@@ -78,8 +78,8 @@ const LandingPage: NextPage = () => {
               width: '100%',
               maxWidth: 760,
               borderRadius: 5,
-              px: { xs: 4, md: 7 },
-              py: { xs: 5, md: 8 },
+              px: { xs: 3, md: 5 },
+              py: { xs: 3, md: 5 },
               boxShadow: '0 32px 90px rgba(15,23,42,0.35)',
               backgroundColor: 'background.paper',
             }}
@@ -105,12 +105,17 @@ const LandingPage: NextPage = () => {
                 It is designed to expand our understanding of Khmer objects around the world, helping us see where they
                 came from, whose hands they&apos;ve passed through, and how people have engaged with them through time.
                 People, from local community members to visitors, art dealers and museum representatives to
-                creatives—and now maybe you—have taken photographs of these objects for centuries. Interested in seeing
-                if there are other photos of a particular statue? Upload a photo of a statue and search for other photos
+                creatives—and now maybe you—have taken photographs of these objects for centuries.
+              </Typography>
+              <Typography variant="h6" color="text.primary">
+                Interested in seeing if there are other photos of a particular statue? Upload a photo of a statue and search for other photos
                 of it in the KSP&apos;s database. Our trained image recognition model will return possible matches for
                 your photo. You can add your photo and its corresponding information to our growing database, either as
                 a new statue or as an additional image for a statue already documented. Our team will review and confirm
-                your submission. Visit{' '}
+                your submission.
+              </Typography>
+              <Typography variant="h6" color="text.primary">
+                Visit{' '}
                 <MuiLink
                   href="https://statuaryproject.org"
                   target="_blank"
